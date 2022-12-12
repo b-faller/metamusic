@@ -220,7 +220,7 @@ def main():
     # Get the cover file name
     artist_snake_case = to_snake_case(album_info.artist)
     album_snake_case = to_snake_case(album_info.album)
-    cover_path = f"album_cover_{artist_snake_case}_{album_snake_case}.jpeg"
+    cover_path = f"album_cover_{artist_snake_case}_{album_snake_case}.jpg"
 
     # Call download_cover_art with the entered URL
     download_cover_art(soup, cover_path)
