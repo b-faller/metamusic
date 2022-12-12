@@ -160,4 +160,4 @@ cython_debug/
 #.idea/
 
 # Project specific files
-cover.jpeg
+album_cover_*.jpeg
