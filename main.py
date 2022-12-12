@@ -79,8 +79,11 @@ def get_high_resolution_album_cover_url(url):
 
 
 def get_html_soup(url: str):
-   # Send HTTP request to the URL
+    # Send HTTP request to the URL
     response = requests.get(url)
+
+    # Fix the encoding by using the apparent encoding
+    response.encoding = response.apparent_encoding
 
     # If the request is not successful (response code is not 200), return early
     if response.status_code != 200:
@@ -143,7 +146,7 @@ def to_snake_case(s: str) -> str:
 
 def parse_album_info(soup):
     # Find the metadata script
-    json_str = soup.find("script", {"id": "schema:music-album"}).contents[0]
+    json_str = soup.find("script", {"id": "schema:music-album"}).string
 
     # Parse the JSON-LD string into a dictionary
     data = json.loads(json_str)
